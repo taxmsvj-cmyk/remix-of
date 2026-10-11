@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791741484490,
+      "tag": "0000_mka_core_schema",
+      "breakpoints": true
+    }
+  ]
 }

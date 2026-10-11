@@ -14,13 +14,158 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      circulars: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: string
+          interpretation: string | null
+          issuer: string | null
+          kind: string | null
+          number: string | null
+          query_term: string | null
+          reg_date: string | null
+          related_articles: string | null
+          source_id: string
+          source_name: string | null
+          status: string | null
+          subject: string | null
+          url: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          interpretation?: string | null
+          issuer?: string | null
+          kind?: string | null
+          number?: string | null
+          query_term?: string | null
+          reg_date?: string | null
+          related_articles?: string | null
+          source_id: string
+          source_name?: string | null
+          status?: string | null
+          subject?: string | null
+          url?: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          interpretation?: string | null
+          issuer?: string | null
+          kind?: string | null
+          number?: string | null
+          query_term?: string | null
+          reg_date?: string | null
+          related_articles?: string | null
+          source_id?: string
+          source_name?: string | null
+          status?: string | null
+          subject?: string | null
+          url?: string
+        }
+        Relationships: []
+      }
+      memory_items: {
+        Row: {
+          articles: string[]
+          created_at: string
+          extracted_text: string | null
+          id: string
+          key_points: string[]
+          reasoning: string | null
+          source_ref: string | null
+          source_type: string
+          status: string
+          summary: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          articles?: string[]
+          created_at?: string
+          extracted_text?: string | null
+          id?: string
+          key_points?: string[]
+          reasoning?: string | null
+          source_ref?: string | null
+          source_type?: string
+          status?: string
+          summary?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          articles?: string[]
+          created_at?: string
+          extracted_text?: string | null
+          id?: string
+          key_points?: string[]
+          reasoning?: string | null
+          source_ref?: string | null
+          source_type?: string
+          status?: string
+          summary?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      memory_links: {
+        Row: {
+          created_at: string
+          id: string
+          memory_id: string
+          relation: string | null
+          target_ref: string
+          target_type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          memory_id: string
+          relation?: string | null
+          target_ref: string
+          target_type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          memory_id?: string
+          relation?: string | null
+          target_ref?: string
+          target_type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "memory_links_memory_id_fkey"
+            columns: ["memory_id"]
+            isOneToOne: false
+            referencedRelation: "memory_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      search_knowledge: {
+        Args: { lim?: number; q: string }
+        Returns: {
+          kind: string
+          ref_id: string
+          snippet: string
+          title: string
+          url: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
