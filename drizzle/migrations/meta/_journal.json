@@ -15,6 +15,13 @@
       "when": 1791741500985,
       "tag": "0001_search_or_query",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791820573250,
+      "tag": "0002_roles",
+      "breakpoints": true
     }
   ]
 }
