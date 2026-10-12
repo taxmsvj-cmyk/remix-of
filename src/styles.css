@@ -142,3 +142,5 @@
     color: var(--color-foreground);
   }
 }
+
+body { font-family: 'Vazirmatn', system-ui, sans-serif; }
