@@ -47,9 +47,12 @@ function AuthPage() {
     }
   }
 
-  async function google() {
+  async function google(): Promise<void> {
     const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
-    if (r.error) return toast.error(String(r.error.message ?? r.error));
+    if (r.error) {
+      toast.error(String(r.error.message ?? r.error));
+      return;
+    }
     if (r.redirected) return;
     navigate({ to: "/memory" });
   }
